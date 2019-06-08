@@ -34,8 +34,8 @@ header {
   grid-row: 3 / 4;
 }
 
-.btn {
-}
+/* .btn {
+} */
 
 .btn1 {
   grid-column: 1 / 4;
