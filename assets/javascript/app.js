@@ -6,7 +6,7 @@ let questionAnswered = false;
 let timer = 30;
 let intervalId;
 const btnArr = ["btn1", "btn2", "btn3", "btn4"];
-let currentGame = []
+let currentGame = [];
 // Holds all of the questions, answers and pictures associated with each question
 const questionArr = [
   (q1 = {
@@ -15,7 +15,8 @@ const questionArr = [
     wrongAnswer: "Ice",
     wrongAnswer2: "Longclaw",
     wrongAnswer3: "Oathkeeper",
-    picture: "assets/images/needle1.jpg"
+    picture: "assets/images/needle1.jpg",
+    fact: "Jon gifted Needle to Arya when he left for the Night's Watch",
   }),
   (q2 = {
     question: "What is the name of Jon Snow's Direwolf?",
@@ -23,7 +24,8 @@ const questionArr = [
     wrongAnswer: "Nymeria",
     wrongAnswer2: "Summer",
     wrongAnswer3: "Lady",
-    picture: "assets/images/ghost1.jpg"
+    picture: "assets/images/ghost1.jpg",
+    fact: "Jon's direwolf Ghost is known for his all white appearance",
   }),
   (q3 = {
     question: "What are the words of House Stark?",
@@ -31,7 +33,9 @@ const questionArr = [
     wrongAnswer: "Hear Me Roar",
     wrongAnswer2: "Growing Strong",
     wrongAnswer3: "Unbowed, Unbent, Unbroken",
-    picture: "assets/images/stark1.jpg"
+    picture: "assets/images/stark1.jpg",
+    fact:
+      "The Stark's were warning of the coming winter even before the Knight King was known",
   }),
   (q4 = {
     question: "Who is known as the Kingslayer?",
@@ -39,7 +43,9 @@ const questionArr = [
     wrongAnswer: "Arya Stark",
     wrongAnswer2: "Robert Baratheon",
     wrongAnswer3: "Daenerys Targaryen",
-    picture: "assets/images/jaimeLannister1.jpg"
+    picture: "assets/images/jaimeLannister1.jpg",
+    fact:
+      "Jaime killed the king he was supposed to be protecting and was thereafter called the Kingslayer",
   }),
   (q5 = {
     question: "Which of these is not one of Daenerys dragons?",
@@ -47,7 +53,9 @@ const questionArr = [
     wrongAnswer: "Drogon",
     wrongAnswer2: "Rhaegal",
     wrongAnswer3: "Viserion",
-    picture: "assets/images/smaug1.jpg"
+    picture: "assets/images/smaug1.jpg",
+    fact:
+      "Smaug is the dragon found in the hobbit series sleeping on his mountain of gold",
   }),
   (q6 = {
     question: "Who was responsible for the creation of the Night King?",
@@ -55,15 +63,18 @@ const questionArr = [
     wrongAnswer: "The Lord of Light",
     wrongAnswer2: "The Drowned God",
     wrongAnswer3: "The First Men",
-    picture: "assets/images/nightKing1.jpg"
+    picture: "assets/images/nightKing1.jpg",
   }),
   (q7 = {
-    question: "This character is also known for being the world's strongest man. ",
+    question:
+      "This character is also known for being the world's strongest man. ",
     answer: "The Mountain",
     wrongAnswer: "The Hound",
     wrongAnswer2: "Khal Drogo",
     wrongAnswer3: "Tormund Giantsbane",
-    picture: "assets/images/theMountain1.jpg"
+    picture: "assets/images/theMountain1.jpg",
+    fact:
+      "He is apptly named The Mountain coming in at 6' 9 and weighing 420lbs",
   }),
   (q8 = {
     question: "Whose family crest is that of a Stag?",
@@ -71,7 +82,8 @@ const questionArr = [
     wrongAnswer: "Stark",
     wrongAnswer2: "Bolton",
     wrongAnswer3: "Lannister",
-    picture: "assets/images/stag1.jpg"
+    picture: "assets/images/stag1.jpg",
+    fact: "The sigil of King Robert",
   }),
 ];
 
@@ -104,16 +116,17 @@ function writeDisplay(object) {
 function showStats() {
   document.getElementById("timer").innerHTML = "Game Over";
   document.getElementById("question").innerHTML = "Here's how you did!";
-  document.getElementById("btn1").innerHTML = "Correct Answers " + rightAnswer;
-  document.getElementById("btn2").innerHTML = "Wrong Answers " + wrongAnswer;
+  document.getElementById("btn1").innerHTML = "Correct Answers: " + rightAnswer;
+  document.getElementById("btn2").innerHTML = "Wrong Answers: " + wrongAnswer;
   document.getElementById("btn3").innerHTML =
-    "Questions Unanswered " + unAnswered;
+    "Questions Unanswered: " + unAnswered;
   document.getElementById("btn4").innerHTML = "New Game";
   document.getElementById("btn4").id = "newGame";
 }
 
+// If under question number limit puts new question on screen / else ends game and shows stats
 function nextQuestion() {
-  if (questionNumber <= 5) {
+  if (questionNumber <= 4) {
     shuffle(btnArr);
     questionAnswered = false;
     writeDisplay(questionArr[questionNumber]);
@@ -124,31 +137,32 @@ function nextQuestion() {
   }
 }
 
+// Shuffles question array and puts that value into current game then starts the game
 function newGame() {
   document.getElementById("newGame").id = "btn4";
-  currentGame = (shuffle(questionArr));
+  currentGame = shuffle(questionArr);
   shuffle(btnArr);
   writeDisplay(currentGame[0]);
   resetValues();
-  console.log(currentGame)
+  console.log(currentGame);
   setTimeout(startTimer, 1000);
 }
 
 // Sets the source for the image to be displayed and shows the image div on top
 function showImage(src) {
-  document.getElementById("image").innerHTML = "<img src=" + src + "/>"
-  document.getElementById("image").style.display = "block"
-  timeOut(hideImage)
+  document.getElementById("image").innerHTML = "<img src=" + src + "/>";
+  document.getElementById("image").style.display = "block";
+  timeOut(hideImage);
 }
 
 // Hides the image div after the timeout
 function hideImage() {
-  document.getElementById("image").style.display = "none"
+  document.getElementById("image").style.display = "none";
 }
 
 // Is triggered from the compare answer function if answer is correct
 function correctAnswer(object) {
-  showImage(currentGame[questionNumber].picture)
+  showImage(currentGame[questionNumber].picture);
   questionAnswered = true;
   rightAnswer++;
   questionNumber++;
@@ -171,8 +185,8 @@ function incorrectAnswer(object) {
 }
 
 // Is triggered from the count function when the timer hits 0
-function noAnswer() {
-  showImage("assets/images/dontKnow.jpg")
+function noAnswer(object) {
+  showImage("assets/images/dontKnow1.jpg");
   questionNumber++;
   unAnswered++;
   questionAnswered = true;
@@ -207,7 +221,7 @@ document.getElementById("buttons").addEventListener("click", function(event) {
 // Checks to see if question has been answer or if timer is at 0 if not counts down
 function count() {
   if (questionAnswered || timer === 0) {
-    noAnswer();
+    noAnswer(currentGame[questionNumber]);
   } else {
     timer--;
     document.getElementById("timer").innerHTML =
