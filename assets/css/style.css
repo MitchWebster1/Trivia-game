@@ -7,6 +7,9 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  background: url(../images/ironThrone.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: white;
 }
 
 .container {
@@ -16,7 +19,8 @@ body {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 25% repeat(6, 1fr);
+  grid-template-rows: 15% repeat(6, 1fr);
+  background-color: #00000030;
 }
 
 header {
@@ -37,9 +41,22 @@ header {
   font-size: 2.25em;
 }
 
-.btnDiv {
+img {
+  width: 75%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.image {
   grid-column: 1 / 4;
   grid-row: 4 /8;
+  z-index: 1;
+  justify-content: center;
+}
+
+.btnDiv {
+  grid-column: 1 / 4;
+  grid-row: 4 /7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,6 +67,6 @@ header {
   flex: 1;
   margin: 0.25em auto;
   font-size: 2em;
-  width: 50%;
+  min-width: 50%;
   border-radius: 5px;
 }
