@@ -35,10 +35,10 @@ const questionArr = [
     wrongAnswer3: "Unbowed, Unbent, Unbroken",
     picture: "assets/images/stark1.jpg",
     fact:
-      "The Stark's were warning of the coming winter even before the Knight King was known",
+      "The Stark's were warning of the coming winter even before the Night King was known",
   }),
   (q4 = {
-    question: "Who is known as the Kingslayer?",
+    question: "Which character is known as the Kingslayer?",
     answer: "Jaime Lannister",
     wrongAnswer: "Arya Stark",
     wrongAnswer2: "Robert Baratheon",
@@ -55,15 +55,17 @@ const questionArr = [
     wrongAnswer3: "Viserion",
     picture: "assets/images/smaug1.jpg",
     fact:
-      "Smaug is the dragon found in the hobbit series sleeping on his mountain of gold",
+      "Smaug is the dragon found in the hobbit series sleeping on his mountain of gold.",
   }),
   (q6 = {
-    question: "Who was responsible for the creation of the Night King?",
-    answer: "The Children of the Forest",
+    question: "The children of the forest created: ",
+    answer: "The Night King",
     wrongAnswer: "The Lord of Light",
-    wrongAnswer2: "The Drowned God",
+    wrongAnswer2: "The Dragons",
     wrongAnswer3: "The First Men",
     picture: "assets/images/nightKing1.jpg",
+    fact:
+      "The children of the forest created the White Walkers to protect themselves against the First Men.",
   }),
   (q7 = {
     question:
@@ -148,16 +150,18 @@ function newGame() {
   setTimeout(startTimer, 1000);
 }
 
-// Sets the source for the image to be displayed and shows the image div on top
+// Sets the source for the image to be displayed / hides the buttons / displays image
 function showImage(src) {
   document.getElementById("image").innerHTML = "<img src=" + src + "/>";
   document.getElementById("image").style.display = "block";
+  document.getElementById("buttons").style.display = "none";
   timeOut(hideImage);
 }
 
-// Hides the image div after the timeout
+// Hides the image div after the timeout and shows the buttons
 function hideImage() {
   document.getElementById("image").style.display = "none";
+  document.getElementById("buttons").style.display = "flex";
 }
 
 // Is triggered from the compare answer function if answer is correct
@@ -167,6 +171,7 @@ function correctAnswer(object) {
   rightAnswer++;
   questionNumber++;
   document.getElementById("timer").innerHTML = "Correct!";
+  document.getElementById("question").innerHTML = object.fact;
   stopTimer();
   timeOut(nextQuestion);
 }
@@ -177,9 +182,9 @@ function incorrectAnswer(object) {
   questionAnswered = true;
   wrongAnswer++;
   questionNumber++;
-  document.getElementById("timer").innerHTML = "Incorrect!";
-  document.getElementById("question").innerHTML =
-    "The correct answer is " + object.answer;
+  document.getElementById("timer").innerHTML =
+    "Incorrect! " + "The correct answer is " + object.answer;
+  document.getElementById("question").innerHTML = object.fact;
   stopTimer();
   timeOut(nextQuestion);
 }
@@ -190,9 +195,9 @@ function noAnswer(object) {
   questionNumber++;
   unAnswered++;
   questionAnswered = true;
-  document.getElementById("timer").innerHTML = "Time's Up!";
-  document.getElementById("question").innerHTML =
-    "The correct answer is " + object.answer;
+  document.getElementById("timer").innerHTML =
+    "Time's Up! " + " The correct answer is " + object.answer;
+  document.getElementById("question").innerHTML = object.fact;
   stopTimer();
   timeOut(nextQuestion);
 }
