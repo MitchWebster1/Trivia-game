@@ -34,8 +34,7 @@ const questionArr = [
     wrongAnswer2: "Growing Strong",
     wrongAnswer3: "Unbowed, Unbent, Unbroken",
     picture: "assets/images/stark1.jpg",
-    fact:
-      "The Stark's were warning of the coming winter even before the Night King was known",
+    fact: "The Stark's were warning of the coming winter even before the Night King was known",
   }),
   (q4 = {
     question: "Which character is known as the Kingslayer?",
@@ -54,8 +53,7 @@ const questionArr = [
     wrongAnswer2: "Rhaegal",
     wrongAnswer3: "Viserion",
     picture: ".assets/images/smaug1.jpg",
-    fact:
-      "Smaug is the dragon found in the hobbit series sleeping on his mountain of gold.",
+    fact: "Smaug is the dragon found in the hobbit series sleeping on his mountain of gold.",
   }),
   (q6 = {
     question: "The children of the forest created: ",
@@ -68,15 +66,13 @@ const questionArr = [
       "The children of the forest created the White Walkers to protect themselves against the First Men.",
   }),
   (q7 = {
-    question:
-      "This character is also known for being the world's strongest man. ",
+    question: "This character is also known for being the world's strongest man. ",
     answer: "The Mountain",
     wrongAnswer: "The Hound",
     wrongAnswer2: "Khal Drogo",
     wrongAnswer3: "Tormund Giantsbane",
     picture: "assets/images/theMountain1.jpg",
-    fact:
-      "He is apptly named The Mountain coming in at 6' 9 and weighing 420lbs",
+    fact: "He is apptly named The Mountain coming in at 6' 9 and weighing 420lbs",
   }),
   (q8 = {
     question: "Whose family crest is that of a Stag?",
@@ -92,7 +88,7 @@ const questionArr = [
 // Is used to shuffle the button array as well as the question array so
 // they are randomized with each new question / game respectively
 function shuffle(arr) {
-  let random = arr.sort(() => Math.random() - 0.5);
+  const random = arr.sort(() => Math.random() - 0.5);
   return random;
 }
 
@@ -118,10 +114,9 @@ function writeDisplay(object) {
 function showStats() {
   document.getElementById("timer").innerHTML = "Game Over";
   document.getElementById("question").innerHTML = "Here's how you did!";
-  document.getElementById("btn1").innerHTML = "Correct Answers: " + rightAnswer;
-  document.getElementById("btn2").innerHTML = "Wrong Answers: " + wrongAnswer;
-  document.getElementById("btn3").innerHTML =
-    "Questions Unanswered: " + unAnswered;
+  document.getElementById("btn1").innerHTML = `Correct Answers: ${rightAnswer}`;
+  document.getElementById("btn2").innerHTML = `Wrong Answers: ${wrongAnswer}`;
+  document.getElementById("btn3").innerHTML = `Questions Unanswered: ${unAnswered}`;
   document.getElementById("btn4").innerHTML = "New Game";
   document.getElementById("btn4").id = "newGame";
 }
@@ -152,7 +147,7 @@ function newGame() {
 
 // Sets the source for the image to be displayed / hides the buttons / displays image
 function showImage(src) {
-  document.getElementById("image").innerHTML = "<img src=" + src + "/>";
+  document.getElementById("image").innerHTML = `<img src=${src}>`;
   document.getElementById("image").style.display = "block";
   document.getElementById("buttons").style.display = "none";
   timeOut(hideImage);
@@ -182,8 +177,7 @@ function incorrectAnswer(object) {
   questionAnswered = true;
   wrongAnswer++;
   questionNumber++;
-  document.getElementById("timer").innerHTML =
-    "Incorrect! " + "The correct answer is " + object.answer;
+  document.getElementById("timer").innerHTML = `${"Incorrect! " + "The correct answer is "}${object.answer}`;
   document.getElementById("question").innerHTML = object.fact;
   stopTimer();
   timeOut(nextQuestion);
@@ -195,8 +189,7 @@ function noAnswer(object) {
   questionNumber++;
   unAnswered++;
   questionAnswered = true;
-  document.getElementById("timer").innerHTML =
-    "Time's Up! " + " The correct answer is " + object.answer;
+  document.getElementById("timer").innerHTML = `${"Time's Up! " + " The correct answer is "}${object.answer}`;
   document.getElementById("question").innerHTML = object.fact;
   stopTimer();
   timeOut(nextQuestion);
@@ -212,12 +205,12 @@ function compareAnswer(btn) {
 }
 
 // all of my button click events
-document.getElementById("buttons").addEventListener("click", function(event) {
-  let btnClicked = event.target.id;
+document.getElementById("buttons").addEventListener("click", (event) => {
+  const btnClicked = event.target.id;
   if (btnClicked === "newGame") {
     newGame();
   } else if (questionAnswered) {
-    return;
+
   } else if (compareAnswer(btnClicked)) {
     stopTimer();
   }
@@ -229,8 +222,7 @@ function count() {
     noAnswer(currentGame[questionNumber]);
   } else {
     timer--;
-    document.getElementById("timer").innerHTML =
-      "Time remaining: " + timer + " seconds";
+    document.getElementById("timer").innerHTML = `Time remaining: ${timer} seconds`;
   }
 }
 
@@ -238,8 +230,7 @@ function count() {
 function startTimer() {
   if (!questionAnswered) {
     timer = 30;
-    document.getElementById("timer").innerHTML =
-      "Time remaining: " + timer + " seconds";
+    document.getElementById("timer").innerHTML = `Time remaining: ${timer} seconds`;
     intervalId = setInterval(count, 1000);
   }
 }
