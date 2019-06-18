@@ -15,7 +15,7 @@ const questionArr = [
     wrongAnswer: "Ice",
     wrongAnswer2: "Longclaw",
     wrongAnswer3: "Oathkeeper",
-    picture: "assets/images/needle1.jpg",
+    picture: "./assets/images/needle1.jpg",
     fact: "Jon gifted Needle to Arya when he left for the Night's Watch",
   }),
   (q2 = {
@@ -177,7 +177,9 @@ function incorrectAnswer(object) {
   questionAnswered = true;
   wrongAnswer++;
   questionNumber++;
-  document.getElementById("timer").innerHTML = `${"Incorrect! " + "The correct answer is "}${object.answer}`;
+  document.getElementById("timer").innerHTML = `${"Incorrect! " + "The correct answer is "}${
+    object.answer
+  }`;
   document.getElementById("question").innerHTML = object.fact;
   stopTimer();
   timeOut(nextQuestion);
@@ -189,7 +191,9 @@ function noAnswer(object) {
   questionNumber++;
   unAnswered++;
   questionAnswered = true;
-  document.getElementById("timer").innerHTML = `${"Time's Up! " + " The correct answer is "}${object.answer}`;
+  document.getElementById("timer").innerHTML = `${"Time's Up! " + " The correct answer is "}${
+    object.answer
+  }`;
   document.getElementById("question").innerHTML = object.fact;
   stopTimer();
   timeOut(nextQuestion);
@@ -210,7 +214,6 @@ document.getElementById("buttons").addEventListener("click", (event) => {
   if (btnClicked === "newGame") {
     newGame();
   } else if (questionAnswered) {
-
   } else if (compareAnswer(btnClicked)) {
     stopTimer();
   }
