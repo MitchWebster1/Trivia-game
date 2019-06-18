@@ -24,7 +24,7 @@ const questionArr = [
     wrongAnswer: "Nymeria",
     wrongAnswer2: "Summer",
     wrongAnswer3: "Lady",
-    picture: "assets/images/ghost1.jpg",
+    picture: "./assets/images/ghost1.jpg",
     fact: "Jon's direwolf Ghost is known for his all white appearance",
   }),
   (q3 = {
@@ -33,7 +33,7 @@ const questionArr = [
     wrongAnswer: "Hear Me Roar",
     wrongAnswer2: "Growing Strong",
     wrongAnswer3: "Unbowed, Unbent, Unbroken",
-    picture: "assets/images/stark1.jpg",
+    picture: "./assets/images/stark1.jpg",
     fact: "The Stark's were warning of the coming winter even before the Night King was known",
   }),
   (q4 = {
@@ -42,7 +42,7 @@ const questionArr = [
     wrongAnswer: "Arya Stark",
     wrongAnswer2: "Robert Baratheon",
     wrongAnswer3: "Daenerys Targaryen",
-    picture: "assets/images/jaimeLannister1.jpg",
+    picture: "./assets/images/jaimeLannister1.jpg",
     fact:
       "Jaime killed the king he was supposed to be protecting and was thereafter called the Kingslayer",
   }),
@@ -52,7 +52,7 @@ const questionArr = [
     wrongAnswer: "Drogon",
     wrongAnswer2: "Rhaegal",
     wrongAnswer3: "Viserion",
-    picture: ".assets/images/smaug1.jpg",
+    picture: "./assets/images/smaug1.jpg",
     fact: "Smaug is the dragon found in the hobbit series sleeping on his mountain of gold.",
   }),
   (q6 = {
@@ -61,7 +61,7 @@ const questionArr = [
     wrongAnswer: "The Lord of Light",
     wrongAnswer2: "The Dragons",
     wrongAnswer3: "The First Men",
-    picture: "/assets/images/nightKing1.jpg",
+    picture: "./assets/images/nightKing1.jpg",
     fact:
       "The children of the forest created the White Walkers to protect themselves against the First Men.",
   }),
@@ -71,7 +71,7 @@ const questionArr = [
     wrongAnswer: "The Hound",
     wrongAnswer2: "Khal Drogo",
     wrongAnswer3: "Tormund Giantsbane",
-    picture: "assets/images/theMountain1.jpg",
+    picture: "./assets/images/theMountain1.jpg",
     fact: "He is apptly named The Mountain coming in at 6' 9 and weighing 420lbs",
   }),
   (q8 = {
@@ -80,7 +80,7 @@ const questionArr = [
     wrongAnswer: "Stark",
     wrongAnswer2: "Bolton",
     wrongAnswer3: "Lannister",
-    picture: "assets/images/stag1.jpg",
+    picture: "./assets/images/stag1.jpg",
     fact: "The sigil of King Robert",
   }),
 ];
