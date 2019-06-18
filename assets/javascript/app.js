@@ -53,7 +53,7 @@ const questionArr = [
     wrongAnswer: "Drogon",
     wrongAnswer2: "Rhaegal",
     wrongAnswer3: "Viserion",
-    picture: "assets/images/smaug1.jpg",
+    picture: ".assets/images/smaug1.jpg",
     fact:
       "Smaug is the dragon found in the hobbit series sleeping on his mountain of gold.",
   }),
@@ -63,7 +63,7 @@ const questionArr = [
     wrongAnswer: "The Lord of Light",
     wrongAnswer2: "The Dragons",
     wrongAnswer3: "The First Men",
-    picture: "assets/images/nightKing1.jpg",
+    picture: "/assets/images/nightKing1.jpg",
     fact:
       "The children of the forest created the White Walkers to protect themselves against the First Men.",
   }),
