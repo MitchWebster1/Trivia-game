@@ -89,7 +89,7 @@ img {
   height: 100%;
 }
 
-@keyframes bounce {
+/* @keyframes bounce {
   50% {
     transform: translateY(-10px);
   }
@@ -97,4 +97,4 @@ img {
 
 .btn:hover {
   animation: bounce 250ms;
-}
+} */
